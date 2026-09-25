@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle (Orange base) -->
+  <circle cx="132" cy="124" r="108" fill="#FA8000"/>
+  
+  <!-- Flowing organic coral/red-orange overlay -->
+  <path d="M132 16C82.8 16 41.5 50 30.2 96C37.8 77.5 55.4 64 76 64C102.5 64 124 85.5 124 112C124 138.5 145.5 160 172 160C190.5 160 206.8 149.5 215.2 134.2C226.5 174 200.2 216 160 228C103.5 244.8 44.2 212.8 27.5 156.2C25.2 148.5 24 140.4 24 132C24 72.4 72.4 24 132 24C132 16 132 16 132 16Z" fill="#E83B26" opacity="0.15"/>
+  
+  <!-- Main coral shape matching the exact fluent 2024 contour -->
+  <path d="M132 16C80.2 16 36.6 52.4 26 102C26.5 102 27 102 27.5 102C60 102 88 128 88 160.5C88 177.5 78.5 192.5 64.5 200.5C83.5 220 110 232 132 232C191.6 232 240 183.6 240 124C240 64.4 191.6 16 132 16Z" fill="#E83B26"/>
+  
+  <!-- Front floating rounded square badge -->
+  <rect x="16" y="112" width="104" height="104" rx="26" fill="#C4271A"/>
+  
+  <!-- Bold crisp letter P -->
+  <path d="M50 142H75C85.5 142 94 150.5 94 161C94 171.5 85.5 180 75 180H66V202H50V142ZM66 156V166H74C76.8 166 79 163.8 79 161C79 158.2 76.8 156 74 156H66Z" fill="#FFFFFF"/>
+</svg>

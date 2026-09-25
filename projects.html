@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects & Case Studies — Abdelaziz</title>
+  <meta name="description" content="Explore mobile applications, web platforms, and AI projects built by Abdelaziz. Featuring Flutter, Dart, Riverpod, Python, and modern web.">
+  <link rel="icon" type="image/png" href="assets/images/profile.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== Header ==================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-wrapper" aria-label="Home">
+        <img src="assets/images/profile_logo.png" alt="Abdelaziz Logo" class="logo-img" width="48" height="48" loading="eager">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item active"><a href="projects.html">Projects</a></li>
+          <li class="nav-item"><a href="skills.html">Skills</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- <button class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+          <svg class="theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button> -->
+
+        <!-- <a href="contact.html" class="btn-outline" style="border-radius:9999px; padding:8px 20px;">Let's Talk</a>
+
+        <button class="mobile-menu-btn" aria-label="Open mobile navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button> -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== Page Hero ==================== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Portfolio & Case Studies</span>
+        <h1 class="page-hero-title">Selected Work.</h1>
+        <p class="page-hero-subtitle">
+          A showcase of products engineered from inception to deployment. Filter by domain or explore deep-dive case studies below.
+        </p>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+          <button class="filter-btn" data-filter="web">Web & Fullstack</button>
+          <button class="filter-btn" data-filter="ai">AI & Data</button>
+          <button class="filter-btn" data-filter="presentation">Presentations</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Projects Grid ==================== -->
+    <section class="section-padding" style="padding-top:0;">
+      <div class="container">
+        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+          
+          <!-- Project 1: Foody -->
+          <div class="project-card" data-category="mobile">
+            <div>
+              <div class="project-top-row">
+                <div class="project-logo-badge" style="background:rgba(0, 229, 153, 0.12); border-color:rgba(0, 229, 153, 0.3); padding:4px;">
+                  <img src="assets/images/foody_logo.png" alt="Foody Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;">
+                </div>
+                <div class="project-title-meta">
+                  <h3>Foody</h3>
+                  <span class="project-subtitle">Personalized Nutrition & Diet Planning</span>
+                </div>
+              </div>
+              <p class="project-description">
+                A complete nutrition mobile app that helps users calculate daily caloric thresholds, generate custom meal plans, and track health progress against clinical milestones.
+              </p>
+              <div class="project-tags">
+                <span class="tag-badge">Flutter</span>
+                <span class="tag-badge">Dart</span>
+                <span class="tag-badge">Riverpod</span>
+                <span class="tag-badge">Python</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-view" data-project-id="foody">
+                <span>View Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <div class="project-preview-thumb">
+                <img src="assets/images/foodyy.jpg" alt="Foody app preview" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Coffee Shop -->
+          <div class="project-card" data-category="mobile">
+            <div>
+              <div class="project-top-row">
+                <div class="project-logo-badge" style="background:rgba(245, 158, 11, 0.12); border-color:rgba(245, 158, 11, 0.3); padding:3px;">
+                  <img src="assets/images/coffee_logo.png" alt="Coffee Shop Logo" style="width:100%; height:100%; object-fit:contain; border-radius:50%;">
+                </div>
+                <div class="project-title-meta">
+                  <h3>Coffee Shop</h3>
+                  <span class="project-subtitle">Complete Digital Coffee Experience</span>
+                </div>
+              </div>
+              <p class="project-description">
+                A mobile ordering platform that connects customers and boutique baristas with custom brew modifiers, live order tracking, favorites, cart, and loyalty rewards.
+              </p>
+              <div class="project-tags">
+                <span class="tag-badge">Flutter</span>
+                <span class="tag-badge">Firebase</span>
+                <span class="tag-badge">UI/UX</span>
+                <span class="tag-badge">Stripe</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-view" data-project-id="coffee">
+                <span>View Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <div class="project-preview-thumb">
+                <img src="assets/images/coffeee.jpg" alt="Coffee Shop app preview" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Driving School -->
+          <div class="project-card" data-category="web">
+            <div>
+              <div class="project-top-row">
+                <div class="project-logo-badge" style="background:rgba(0, 180, 216, 0.15); color:#00B4D8; border-color:rgba(0, 180, 216, 0.3);">🚗</div>
+                <div class="project-title-meta">
+                  <h3>Driving School</h3>
+                  <span class="project-subtitle">Web Platform & Booking System</span>
+                </div>
+              </div>
+              <p class="project-description">
+                A comprehensive web application to streamline communication between a regional driving academy and its pupils, with automated calendar bookings, test checklists, and payments.
+              </p>
+              <div class="project-tags">
+                <span class="tag-badge">HTML5</span>
+                <span class="tag-badge">CSS3</span>
+                <span class="tag-badge">PHP</span>
+                <span class="tag-badge">WordPress</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-view" data-project-id="driving">
+                <span>View Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <div class="project-preview-thumb">
+                <img src="assets/images/driving_school.jpg" alt="Driving School platform preview" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: CogniFlow AI -->
+          <div class="project-card" data-category="ai">
+            <div>
+              <div class="project-top-row">
+                <div class="project-logo-badge" style="background:rgba(168, 85, 247, 0.15); color:#A855F7; border-color:rgba(168, 85, 247, 0.3);">🧠</div>
+                <div class="project-title-meta">
+                  <h3>CogniFlow AI</h3>
+                  <span class="project-subtitle">Intelligent Knowledge Assistant</span>
+                </div>
+              </div>
+              <p class="project-description">
+                An intelligent retrieval-augmented generation (RAG) assistant indexing enterprise documents, PDFs, and code repositories with real-time citations and zero hallucinations.
+              </p>
+              <div class="project-tags">
+                <span class="tag-badge">Python</span>
+                <span class="tag-badge">FastAPI</span>
+                <span class="tag-badge">LangChain</span>
+                <span class="tag-badge">ChromaDB</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-project-view" data-project-id="aiassistant">
+                <span>View Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+              <div class="project-preview-thumb">
+                <img src="assets/images/developer.jpg" alt="CogniFlow AI platform preview" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="container">
+      
+
+      <div class="footer-bottom-row">
+        <div class="footer-socials">
+         <a href="https://github.com/codizing" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+         
+          <a href="https://instagram.com/codizing_z" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+        <p>© 2026 Abdelaziz - All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== Project Detail Modal ==================== -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="modalMediaContainer" style="margin-bottom:20px; border-radius:12px; overflow:hidden; border:1px solid var(--border-subtle); max-height:340px; background:#0B0F19; display:flex; align-items:center; justify-content:center;">
+        <img id="modalImage" src="" alt="" style="width:100%; height:100%; max-height:340px; object-fit:cover;">
+        <iframe id="modalVideoFrame" src="" style="display:none; width:100%; height:320px; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <video id="modalVideoPlayer" controls playsinline style="display:none; width:100%; max-height:340px;"></video>
+      </div>
+      <h2 id="modalTitle" style="font-family:var(--font-heading); font-size:1.8rem; margin-bottom:4px;">Project Title</h2>
+      <p id="modalSubtitle" style="color:var(--accent-primary); font-weight:600; font-size:0.92rem; margin-bottom:16px;">Tagline</p>
+      <p id="modalDesc" style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:20px;">Detailed description</p>
+
+      <h4 style="font-size:0.9rem; text-transform:uppercase; color:var(--text-main); margin-bottom:10px;">Key Features</h4>
+      <ul id="modalFeatures" style="color:var(--text-muted); padding-left:20px; font-size:0.9rem; line-height:1.7; margin-bottom:24px;"></ul>
+
+      <div style="margin-bottom:24px;">
+        <span style="font-size:0.8rem; text-transform:uppercase; color:var(--text-dim); display:block; margin-bottom:8px;">Tech Stack</span>
+        <div id="modalTags" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a id="modalDemoBtn" href="#" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.88rem; display:none;">
+          <span>Live Demo / Preview</span>
+        </a>
+        <a id="modalGhBtn" href="#" target="_blank" rel="noopener" class="btn-outline" style="font-size:0.88rem; display:none;">View Source on GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  <script src="js/projects-service.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

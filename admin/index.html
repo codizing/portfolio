@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio CMS — Admin Portal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/images/profile.png">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+  <!-- ==================== 1. Login View ==================== -->
+  <div class="auth-wrapper" id="authWrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo-badge">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h1 class="auth-title">Admin Authentication</h1>
+        <p class="auth-subtitle">Sign in to manage portfolio projects</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Admin Email</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="admin@example.com" required
+            autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required
+            autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="loginBtn">
+          <span>Sign In to Dashboard</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 2. Admin Dashboard View ==================== -->
+  <div class="admin-layout" id="adminLayout">
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="admin-nav">
+        <div class="admin-brand" style="display:flex; align-items:center; gap:8px;">
+          <img src="../assets/images/profile.png" width="22" height="22" style="border-radius:50%; object-fit:cover;" alt="Avatar">
+          <span>Abdelaziz Portfolio</span>
+          <span class="badge">CMS</span>
+        </div>
+
+        <div class="admin-user-menu">
+          <button class="btn btn-secondary btn-sm" id="seedDataBtn"
+            title="Seed existing 4 default projects into Firestore">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Seed Existing Projects</span>
+          </button>
+
+          <a href="../index.html" target="_blank" class="btn btn-secondary btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Live Portfolio</span>
+          </a>
+
+          <span class="admin-user-email" id="currentUserDisplay">admin@example.com</span>
+
+          <button class="btn btn-secondary btn-sm" id="logoutBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap" style="background:rgba(0, 229, 153, 0.12); color:var(--accent-primary);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-val" id="statTotalProjects">0</div>
+            <div class="stat-title">Total Projects</div>
+          </div>
+        </div>
+
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap" style="background:rgba(0, 180, 216, 0.12); color:var(--accent-secondary);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-val" id="statPublishedProjects">0</div>
+            <div class="stat-title">Published</div>
+          </div>
+        </div>
+
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap" style="background:rgba(245, 158, 11, 0.12); color:#F59E0B;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+              </polygon>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-val" id="statFeaturedProjects">0</div>
+            <div class="stat-title">Featured</div>
+          </div>
+        </div>
+
+        <div class="admin-stat-card">
+          <div class="stat-icon-wrap" style="background:rgba(168, 85, 247, 0.12); color:var(--accent-purple);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-val" id="statDraftProjects">0</div>
+            <div class="stat-title">Drafts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action & Filter Bar -->
+      <div class="dashboard-actions-row">
+        <div class="search-filter-box">
+          <input type="text" id="projectSearchInput" class="form-input"
+            placeholder="Search projects by title or tech...">
+          <select id="categoryFilterSelect" class="form-select" style="max-width: 170px;">
+            <option value="all">All Categories</option>
+            <option value="mobile">Mobile Apps</option>
+            <option value="web">Web & Fullstack</option>
+            <option value="ai">AI & Data</option>
+            <option value="presentation">Presentations</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" id="openAddProjectModalBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Add New Project</span>
+        </button>
+      </div>
+
+      <!-- Projects Table List -->
+      <div class="projects-table-container">
+        <table class="projects-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Category</th>
+              <th>Technologies</th>
+              <th>Featured</th>
+              <th>Published</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="projectsTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 40px;">
+                Loading projects from Firestore...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- ==================== 3. Add / Edit Project Modal ==================== -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalFormTitle">Add Project</h2>
+        <button class="modal-close-btn" id="closeProjectModalBtn">&times;</button>
+      </div>
+
+      <form id="projectForm">
+        <div class="modal-body">
+          <input type="hidden" id="editProjectId">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="projectTitle">Project Title *</label>
+              <input type="text" id="projectTitle" class="form-input" placeholder="e.g. AI Workflow Platform / Pitch Deck" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projectCategory">Category *</label>
+              <select id="projectCategory" class="form-select" required>
+                <option value="mobile">Mobile Application (Flutter)</option>
+                <option value="web">Web Platform / Fullstack</option>
+                <option value="ai">AI Solution & Integration</option>
+                <option value="presentation">Presentation & Pitch Decks</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectTagline">Subtitle / Tagline *</label>
+            <input type="text" id="projectTagline" class="form-input"
+              placeholder="e.g. Intelligent Real-Time Platform & Modern Visual System" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectDescription">Short Description (Card Overview) *</label>
+            <textarea id="projectDescription" class="form-textarea" style="min-height: 80px;"
+              placeholder="Brief summary displayed on project cards (e.g. High-performance application built to automate complex workflows and deliver real-time insights)..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectFullDescription">Full Case Study Description (Modal Detail)</label>
+            <textarea id="projectFullDescription" class="form-textarea"
+              placeholder="In-depth explanation of system architecture, design decisions, challenges, and delivered business results..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectTags">Technologies / Tags (comma-separated) *</label>
+            <input type="text" id="projectTags" class="form-input"
+              placeholder="Flutter, React, Node.js, Python, Firebase, Figma, PowerPoint" required>
+            <div class="form-help">Separate tags with commas</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectFeatures">Key Features (One per line)</label>
+            <textarea id="projectFeatures" class="form-textarea"
+              placeholder="Real-time synchronized cloud data pipeline&#10;Custom interactive UI components & smooth 60fps animations&#10;Enterprise-grade security with automated caching"></textarea>
+            <div class="form-help">Each line becomes a bullet point in the case study modal</div>
+          </div>
+
+          <!-- Cover Image Upload Dropzone -->
+          <div class="form-group">
+            <label class="form-label">Cover Project Image / GIF *</label>
+            <div class="upload-dropzone" id="coverDropzone">
+              <input type="file" id="projectImageFile" accept="image/*,video/mp4" style="display:none;">
+              <input type="hidden" id="projectImage" required>
+              
+              <div class="dropzone-empty" id="coverDropzoneEmpty">
+                <div class="dropzone-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <div class="dropzone-text">
+                  <strong>Click to upload image/GIF</strong> or drag & drop here
+                </div>
+                <div class="dropzone-subtext">PNG, JPG, WEBP, Animated GIF (Auto-optimized for instant fast loading)</div>
+              </div>
+
+              <div class="dropzone-preview" id="coverDropzonePreview" style="display:none;">
+                <img id="coverPreviewImg" src="" alt="Project Cover">
+                <div class="preview-overlay">
+                  <span class="preview-size-badge" id="coverSizeBadge"></span>
+                  <div class="preview-actions">
+                    <button type="button" class="btn btn-secondary btn-sm" id="changeCoverBtn">Change Image</button>
+                    <button type="button" class="btn btn-danger btn-sm" id="removeCoverBtn">Remove</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional URL paste fallback -->
+            <div style="margin-top: 6px; display:flex; justify-content:space-between; align-items:center;">
+              <span class="form-help">Upload image or animated GIF directly from your computer</span>
+              <button type="button" id="toggleUrlCoverBtn" style="font-size:0.76rem; color:var(--text-dim); background:none; border:none; cursor:pointer; text-decoration:underline;">Or enter URL/path</button>
+            </div>
+            <div id="coverUrlInputWrapper" style="display:none; margin-top:8px;">
+              <input type="text" id="projectImageUrlInput" class="form-input" placeholder="e.g. assets/images/my_project.jpg or https://...">
+            </div>
+          </div>
+
+          <!-- Logo Upload (Optional) & Links -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Logo / Icon Badge (Optional)</label>
+              <div style="display:flex; gap:12px; align-items:center;">
+                <div class="logo-preview-box" id="logoPreviewBox">
+                  <img id="logoPreviewImg" src="" alt="Logo" style="display:none; width:100%; height:100%; object-fit:contain;">
+                  <span id="logoPlaceholderIcon" style="font-size:1.3rem;">🖼️</span>
+                </div>
+                <div style="flex:1;">
+                  <input type="file" id="projectLogoFile" accept="image/*" style="display:none;">
+                  <input type="hidden" id="projectLogo">
+                  <div style="display:flex; gap:8px;">
+                    <button type="button" class="btn btn-secondary btn-sm" id="uploadLogoBtn">Upload Logo</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="removeLogoBtn" style="display:none;">Remove</button>
+                  </div>
+                  <div class="form-help" style="margin-top:4px;">App icon or brand logo badge</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projectGithub">GitHub Repository URL (Optional)</label>
+              <input type="url" id="projectGithub" class="form-input" placeholder="https://github.com/codizing/...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="projectDemo">Live Demo / Video Walkthrough URL</label>
+            <input type="text" id="projectDemo" class="form-input" placeholder="e.g. https://youtu.be/... or https://loom.com/share/... or #">
+            <div class="form-help">YouTube, Loom, Vimeo, Google Drive video links auto-embed in modal</div>
+          </div>
+
+          <div class="form-row"
+            style="background: rgba(255,255,255,0.02); padding: 14px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <label class="switch">
+                <input type="checkbox" id="projectPublished" checked>
+                <span class="slider"></span>
+              </label>
+              <div>
+                <strong style="font-size: 0.9rem;">Published</strong>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Visible to public visitors</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <label class="switch">
+                <input type="checkbox" id="projectFeatured" checked>
+                <span class="slider"></span>
+              </label>
+              <div>
+                <strong style="font-size: 0.9rem;">Featured</strong>
+                <div style="font-size: 0.75rem; color: var(--text-dim);">Shown in Home Selected Work</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelProjectModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveProjectSubmitBtn">
+            <span>Save Project</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 4. Delete Confirmation Modal ==================== -->
+  <div class="modal-backdrop" id="deleteConfirmModal">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h2 class="modal-title" style="color: var(--accent-danger);">Delete Project</h2>
+        <button class="modal-close-btn" id="closeDeleteModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--text-main); margin-bottom: 12px;">
+          Are you sure you want to delete <strong id="deleteProjectTitleDisplay">this project</strong>?
+        </p>
+        <p style="color: var(--text-dim); font-size: 0.85rem;">
+          This action will permanently remove the project from Firestore and the public portfolio.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancelDeleteModalBtn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteActionBtn">Delete Permanently</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Firebase Compat SDK (Works seamlessly in all environments and file://) -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+
+  <!-- Admin CMS Application Script -->
+  <script src="js/admin.js"></script>
+</body>
+
+</html>
